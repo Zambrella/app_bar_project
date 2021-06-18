@@ -52,6 +52,9 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+final image1 = 'https://liquipedia.net/commons/images/thumb/c/c0/Virtus.pro_2019_allmode.png/612px-Virtus.pro_2019_allmode.png';
+final image2 = 'https://ggscore.com/media/logo/t1.png';
+
 class MyCustomAppBar extends SliverPersistentHeaderDelegate {
   const MyCustomAppBar({required this.maxHeight, this.actionButtons});
 
@@ -108,34 +111,32 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                 height: kToolbarHeight * topOpacity,
               ),
               Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
-                      child: TeamInfo(
-                        opacity: topOpacity,
-                        teamName: 'Virtus Pro',
-                        side: 'Radiant',
-                        image:
-                            'https://liquipedia.net/commons/images/thumb/c/c0/Virtus.pro_2019_allmode.png/612px-Virtus.pro_2019_allmode.png',
-                        offset: shrinkOffset,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(image1),
+                          ),
+                        ),
                       ),
                     ),
-                    // Opacity(
-                    //   opacity: topOpacity,
-                    //   child: Container(
-                    //     margin: EdgeInsets.only(top: kToolbarHeight),
-                    //     width: 2,
-                    //     color: Colors.black,
-                    //   ),
-                    // ),
-                    Expanded(
-                      child: TeamInfo(
-                        opacity: topOpacity,
-                        teamName: 'Vici Gaming',
-                        side: 'Dire',
-                        image: 'https://ggscore.com/media/logo/t1.png',
-                        offset: shrinkOffset,
+                    Opacity(
+                      opacity: topOpacity,
+                      child: Container(
+                        height: 30 * topOpacity,
+                        color: Colors.green,
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Container(
+                            padding: EdgeInsets.all(4.0),
+                            child: Center(
+                              child: Text('Virtus Pro'),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],
