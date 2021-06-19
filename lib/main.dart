@@ -32,8 +32,18 @@ class MyHomePage extends StatelessWidget {
             SliverPersistentHeader(
               pinned: true,
               delegate: MyCustomAppBar(maxHeight: 200.0, actionButtons: [
-                CustomIcon(icon: Icons.share),
-                CustomIcon(icon: Icons.notifications_active),
+                CustomIcon(
+                  icon: Icons.share,
+                  onPressed: () {
+                    print('Share');
+                  },
+                ),
+                CustomIcon(
+                  icon: Icons.notifications_active,
+                  onPressed: () {
+                    print('Notification');
+                  },
+                ),
               ]),
             ),
             SliverList(
@@ -52,3 +62,6 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+final raidantGreen = Color(0xff6bb73d);
+final direRed = Color(0xffbb3006);

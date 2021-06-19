@@ -4,6 +4,8 @@ import 'package:app_bar_project/custom_icon.dart';
 import 'package:app_bar_project/top_section.dart';
 import 'package:flutter/material.dart';
 
+import 'main.dart';
+
 final image1 = 'https://liquipedia.net/commons/images/thumb/c/c0/Virtus.pro_2019_allmode.png/612px-Virtus.pro_2019_allmode.png';
 final image2 = 'https://ggscore.com/media/logo/t1.png';
 
@@ -69,7 +71,6 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                // color: Colors.blue,
                 height: kToolbarHeight * topOpacity,
               ),
               Expanded(
@@ -85,7 +86,7 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                           //* Left image
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(16.0 - partialAnimationCompletion * 4),
                               child: Container(
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
@@ -99,27 +100,36 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                           Row(
                             children: [
                               Container(
-                                height: 20,
-                                width: 5 * partialAnimationCompletion,
-                                color: Colors.green,
-                              ),
-                              Container(
-                                padding: const EdgeInsets.all(4.0),
                                 height: 25,
-                                color: Colors.white,
-                                child: Center(child: Text('12 - 32')),
+                                width: 5 * partialAnimationCompletion,
+                                color: raidantGreen,
                               ),
                               Container(
-                                height: 20,
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                                height: 30,
+                                color: Colors.white,
+                                child: Center(
+                                  child: Text(
+                                    '12 - 32',
+                                    style: TextStyle(
+                                      color: Color(0xff303030),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w900,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 25,
                                 width: 5 * partialAnimationCompletion,
-                                color: Colors.red,
+                                color: direRed,
                               ),
                             ],
                           ),
                           //* Right image
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(16.0 - partialAnimationCompletion * 4),
                               child: Container(
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
@@ -141,14 +151,17 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                         children: [
                           Expanded(
                             child: Container(
-                              height: 30 * topOpacity,
-                              color: Colors.green,
+                              height: 25 * topOpacity,
+                              color: raidantGreen,
                               child: FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: Container(
                                   padding: EdgeInsets.all(4.0),
                                   child: Center(
-                                    child: Text('Virtus Pro'),
+                                    child: Text(
+                                      'Virtus Pro',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -156,14 +169,17 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                           ),
                           Expanded(
                             child: Container(
-                              height: 30 * topOpacity,
-                              color: Colors.red,
+                              height: 25 * topOpacity,
+                              color: direRed,
                               child: FittedBox(
                                 fit: BoxFit.scaleDown,
                                 child: Container(
                                   padding: EdgeInsets.all(4.0),
                                   child: Center(
-                                    child: Text('T1'),
+                                    child: Text(
+                                      'Vici Gaming',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -171,6 +187,10 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                           ),
                         ],
                       ),
+                    ),
+                    Container(
+                      height: 0.5,
+                      color: Colors.grey,
                     ),
                   ],
                 ),
