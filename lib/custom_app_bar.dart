@@ -24,7 +24,7 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
     var partialAnimationCompletion = min(1.0, shrinkOffset / (maxHeight - kToolbarHeight));
 
     // print('Shrink Offset: $shrinkOffset');
-    print('Top opacity: $topOpacity');
+    // print('Top opacity: $topOpacity');
     // print('Animation completion: $animationCompletion');
     // print('Partial animation complete: $partialAnimationCompletion');
 
