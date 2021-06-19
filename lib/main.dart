@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.red,
+        primaryColor: direRed,
       ),
       home: MyHomePage(),
     );
@@ -28,6 +29,7 @@ class MyHomePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: CustomScrollView(
+          physics: ClampingScrollPhysics(),
           slivers: [
             SliverPersistentHeader(
               pinned: true,

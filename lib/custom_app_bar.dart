@@ -24,6 +24,7 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
     var partialAnimationCompletion = min(1.0, shrinkOffset / (maxHeight - kToolbarHeight));
 
     // print('Shrink Offset: $shrinkOffset');
+    print('Top opacity: $topOpacity');
     // print('Animation completion: $animationCompletion');
     // print('Partial animation complete: $partialAnimationCompletion');
 
@@ -52,6 +53,18 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                     ),
                   ),
                 ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Opacity(
+              opacity: topOpacity,
+              child: Container(
+                margin: const EdgeInsets.only(top: kToolbarHeight),
+                height: double.infinity,
+                width: 0.3,
+                color: Colors.grey,
               ),
             ),
           ),
@@ -107,7 +120,7 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                                 height: 30,
-                                color: Colors.white,
+                                color: Colors.grey[100],
                                 child: Center(
                                   child: Text(
                                     '12 - 32',
@@ -145,6 +158,7 @@ class MyCustomAppBar extends SliverPersistentHeaderDelegate {
                         ],
                       ),
                     ),
+                    //* Team names
                     Opacity(
                       opacity: topOpacity,
                       child: Row(
